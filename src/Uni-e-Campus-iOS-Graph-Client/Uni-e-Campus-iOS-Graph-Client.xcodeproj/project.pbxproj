@@ -13,6 +13,7 @@
 		4923C399274187BF007DE6B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4923C397274187BF007DE6B2 /* Main.storyboard */; };
 		4923C39B274187C0007DE6B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4923C39A274187C0007DE6B2 /* Assets.xcassets */; };
 		4923C39E274187C0007DE6B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4923C39C274187C0007DE6B2 /* LaunchScreen.storyboard */; };
+		497224A42743CB340081F97B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 497224A32743CB340081F97B /* Event.swift */; };
 		B350819FFDD1427F84C7DEED /* Pods_Uni_e_Campus_iOS_Graph_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1FDF3FDE7C6021197ADD15F /* Pods_Uni_e_Campus_iOS_Graph_Client.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		4923C39D274187C0007DE6B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4923C39F274187C0007DE6B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		497224A127439E6F0081F97B /* Uni-e-Campus-iOS-Graph-Client.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Uni-e-Campus-iOS-Graph-Client.entitlements"; sourceTree = "<group>"; };
+		497224A32743CB340081F97B /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		78B80B3DCB4FD8835B2D5ACB /* Pods-Uni-e-Campus-iOS-Graph-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uni-e-Campus-iOS-Graph-Client.release.xcconfig"; path = "Target Support Files/Pods-Uni-e-Campus-iOS-Graph-Client/Pods-Uni-e-Campus-iOS-Graph-Client.release.xcconfig"; sourceTree = "<group>"; };
 		D1FDF3FDE7C6021197ADD15F /* Pods_Uni_e_Campus_iOS_Graph_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uni_e_Campus_iOS_Graph_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60C40A3948D915743A2F023 /* Pods-Uni-e-Campus-iOS-Graph-Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uni-e-Campus-iOS-Graph-Client.debug.xcconfig"; path = "Target Support Files/Pods-Uni-e-Campus-iOS-Graph-Client/Pods-Uni-e-Campus-iOS-Graph-Client.debug.xcconfig"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				4923C39A274187C0007DE6B2 /* Assets.xcassets */,
 				4923C39C274187C0007DE6B2 /* LaunchScreen.storyboard */,
 				4923C39F274187C0007DE6B2 /* Info.plist */,
+				497224A32743CB340081F97B /* Event.swift */,
 			);
 			path = "Uni-e-Campus-iOS-Graph-Client";
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				497224A42743CB340081F97B /* Event.swift in Sources */,
 				4923C396274187BF007DE6B2 /* ViewController.swift in Sources */,
 				4923C392274187BF007DE6B2 /* AppDelegate.swift in Sources */,
 				4923C394274187BF007DE6B2 /* SceneDelegate.swift in Sources */,

@@ -141,7 +141,7 @@ class ViewController: UIViewController {
     }
     
     func getGraphEndpoint() -> String {
-        return kGraphEndpoint.hasSuffix("/") ? (kGraphEndpoint + "v1.0/me/") : (kGraphEndpoint + "/v1.0/me/");
+        return kGraphEndpoint.hasSuffix("/") ? (kGraphEndpoint + "v1.0/me/calendar/events") : (kGraphEndpoint + "/v1.0/me/calendar/events");
     }
 
     @objc func callGraphAPI(_ sender: AnyObject) {
@@ -204,14 +204,11 @@ class ViewController: UIViewController {
         guard let applicationContext = self.applicationContext else { return }
         guard let webViewParameters = self.webViewParameters else { return }
 
-        // #1
         let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)
         parameters.promptType = .selectAccount
 
-        // #2
         applicationContext.acquireToken(with: parameters) { (result, error) in
 
-            // #3
             if let error = error {
 
                 self.updateLogging(text: "Could not acquire token: \(error)")
@@ -224,30 +221,16 @@ class ViewController: UIViewController {
                 return
             }
 
-            // #4
             self.accessToken = result.accessToken
             self.updateLogging(text: "Access token is \(self.accessToken)")
             self.updateCurrentAccount(account: result.account)
-            self.getContentWithToken()
+            self.getCalendarEventsWithToken()
         }
     }
 
     func acquireTokenSilently(_ account : MSALAccount!) {
 
         guard let applicationContext = self.applicationContext else { return }
-
-        /**
-
-         Acquire a token for an existing account silently
-
-         - forScopes:           Permissions you want included in the access token received
-         in the result in the completionBlock. Not all scopes are
-         guaranteed to be included in the access token returned.
-         - account:             An account object that we retrieved from the application object before that the
-         authentication flow will be locked down to.
-         - completionBlock:     The completion block that will be called when the authentication
-         flow completes, or encounters an error.
-         */
 
         let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 
@@ -256,10 +239,6 @@ class ViewController: UIViewController {
             if let error = error {
 
                 let nsError = error as NSError
-
-                // interactionRequired means we need to ask the user to sign-in. This usually happens
-                // when the user's Refresh Token is expired or if the user has changed their password
-                // among other possible reasons.
 
                 if (nsError.domain == MSALErrorDomain) {
 
@@ -285,11 +264,11 @@ class ViewController: UIViewController {
             self.accessToken = result.accessToken
             self.updateLogging(text: "Refreshed Access token is \(self.accessToken)")
             self.updateSignOutButton(enabled: true)
-            self.getContentWithToken()
+            self.getCalendarEventsWithToken()
         }
     }
     
-    func getContentWithToken() {
+    func getCalendarEventsWithToken() {
 
         // Specify the Graph API endpoint
         let graphURI = getGraphEndpoint()
@@ -305,16 +284,22 @@ class ViewController: UIViewController {
                 self.updateLogging(text: "Couldn't get graph result: \(error)")
                 return
             }
-
-            guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
-
+            
+            guard let jsonEvents = data else {
+                self.updateLogging(text: "Couldn't read the result from the API call")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let events = try decoder.decode(EventsResponse.self, from: jsonEvents)
+                self.updateLogging(text: "Retrieved \(events.value.capacity) events from Graph!")
+            } catch {
                 self.updateLogging(text: "Couldn't deserialize result JSON")
                 return
             }
 
-            self.updateLogging(text: "Result from Graph: \(result))")
-
-            }.resume()
+        }.resume()
     }
 
     @objc func signOut(_ sender: AnyObject) {
