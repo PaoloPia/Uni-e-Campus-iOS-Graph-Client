@@ -270,12 +270,10 @@ class ViewController: UIViewController {
     
     func getCalendarEventsWithToken() {
 
-        // Specify the Graph API endpoint
         let graphURI = getGraphEndpoint()
         let url = URL(string: graphURI)
         var request = URLRequest(url: url!)
 
-        // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
 
         URLSession.shared.dataTask(with: request) { data, response, error in
