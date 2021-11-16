@@ -25,6 +25,7 @@
 		4923C39A274187C0007DE6B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4923C39D274187C0007DE6B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4923C39F274187C0007DE6B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		497224A127439E6F0081F97B /* Uni-e-Campus-iOS-Graph-Client.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Uni-e-Campus-iOS-Graph-Client.entitlements"; sourceTree = "<group>"; };
 		78B80B3DCB4FD8835B2D5ACB /* Pods-Uni-e-Campus-iOS-Graph-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uni-e-Campus-iOS-Graph-Client.release.xcconfig"; path = "Target Support Files/Pods-Uni-e-Campus-iOS-Graph-Client/Pods-Uni-e-Campus-iOS-Graph-Client.release.xcconfig"; sourceTree = "<group>"; };
 		D1FDF3FDE7C6021197ADD15F /* Pods_Uni_e_Campus_iOS_Graph_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uni_e_Campus_iOS_Graph_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D60C40A3948D915743A2F023 /* Pods-Uni-e-Campus-iOS-Graph-Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Uni-e-Campus-iOS-Graph-Client.debug.xcconfig"; path = "Target Support Files/Pods-Uni-e-Campus-iOS-Graph-Client/Pods-Uni-e-Campus-iOS-Graph-Client.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 		4923C390274187BF007DE6B2 /* Uni-e-Campus-iOS-Graph-Client */ = {
 			isa = PBXGroup;
 			children = (
+				497224A127439E6F0081F97B /* Uni-e-Campus-iOS-Graph-Client.entitlements */,
 				4923C391274187BF007DE6B2 /* AppDelegate.swift */,
 				4923C393274187BF007DE6B2 /* SceneDelegate.swift */,
 				4923C395274187BF007DE6B2 /* ViewController.swift */,
@@ -88,7 +90,6 @@
 				D60C40A3948D915743A2F023 /* Pods-Uni-e-Campus-iOS-Graph-Client.debug.xcconfig */,
 				78B80B3DCB4FD8835B2D5ACB /* Pods-Uni-e-Campus-iOS-Graph-Client.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -357,6 +358,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Uni-e-Campus-iOS-Graph-Client/Uni-e-Campus-iOS-Graph-Client.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NMJLM962Y6;
@@ -386,6 +388,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Uni-e-Campus-iOS-Graph-Client/Uni-e-Campus-iOS-Graph-Client.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NMJLM962Y6;
